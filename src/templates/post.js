@@ -1,13 +1,26 @@
-import {Link} from 'gatsby'
+import {graphql, Link} from 'gatsby'
 import React from 'react'
 import Layout from '../components/layout'
+import {MDXRenderer} from 'gatsby-plugin-mdx'
 
-const PostTemplate = () => {
+export const query = graphql`
+  query($slug: String!) {
+    mdx(frontmatter: {slug: {eq: $slug}}) {
+      frontmatter {
+        title
+        author
+      }
+      body
+    }
+  }
+`
+
+const PostTemplate = ({data: {mdx: post}}) => {
   return (
     <Layout>
-      <h1>Post Title</h1>
-      <p>Posted by (author)</p>
-      <p>Post body here</p>
+      <h1>{post.frontmatter.title}</h1>
+      <p>{post.frontmatter.author}</p>
+      <MDXRenderer>{post.body}</MDXRenderer>
       <Link to="/">&larr; Back to all posts</Link>
     </Layout>
   )
