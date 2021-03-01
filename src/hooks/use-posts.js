@@ -1,11 +1,11 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby'
 
 const usePosts = () => {
   const data = useStaticQuery(graphql`
-    query{
-      allMdx{
-        nodes{
-          frontmatter{
+    query {
+      allMdx {
+        nodes {
+          frontmatter {
             title
             slug
             author
@@ -24,4 +24,4 @@ const usePosts = () => {
   }))
 }
 
-export default usePosts;
+export default usePosts

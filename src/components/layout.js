@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     ${
       '' /* color: ${props => (props.theme === "purple" ? "purple" : "white")}; */
     }
