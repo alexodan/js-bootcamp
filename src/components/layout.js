@@ -1,7 +1,29 @@
 import React from 'react'
+import {createGlobalStyle} from 'styled-components'
+import Navbar from './navbar'
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    ${
+      '' /* color: ${props => (props.theme === "purple" ? "purple" : "white")}; */
+    }
+  }
+`
 
 const Layout = ({children}) => {
-  return <div>{children}</div>
+  return (
+    <div>
+      <GlobalStyle theme="purple" />
+      <Navbar />
+      {children}
+    </div>
+  )
 }
 
 export default Layout
