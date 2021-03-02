@@ -1,6 +1,7 @@
-import {graphql, Link} from 'gatsby'
 import React from 'react'
+import {graphql} from 'gatsby'
 import Layout from '../components/layout'
+import Hero from '../components/hero'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import {MediaQueries} from '../utils/media-queries'
@@ -40,6 +41,7 @@ export const query = graphql`
       frontmatter {
         title
         author
+        image
       }
       body
     }
@@ -52,6 +54,7 @@ const PostTemplate = ({data: {mdx: post}}) => {
       <StyledPost>
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.author}</p>
+        <Hero imagePath={post.frontmatter.image} />
         <MDXRenderer>{post.body}</MDXRenderer>
       </StyledPost>
       <PostFooter>
