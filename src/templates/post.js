@@ -4,9 +4,10 @@ import Layout from '../components/layout'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 import {MediaQueries} from '../utils/media-queries'
+import {StyledLink} from '../components/styled-link'
 
 const StyledPost = styled.div`
-  margin: 0 auto;
+  margin: 30px auto 50px;
   width: 90%;
   ${MediaQueries.FromTablet} {
     width: 60%;
@@ -18,6 +19,18 @@ const StyledPost = styled.div`
     margin: 20px 0;
     line-height: 20px;
     letter-spacing: 0.3px;
+  }
+  ul li {
+    margin-left: 22px;
+    margin-top: 10px;
+  }
+`
+
+const PostFooter = styled.aside`
+  margin-bottom: 40px;
+  position: relative;
+  a {
+    margin-left: 30px;
   }
 `
 
@@ -40,8 +53,10 @@ const PostTemplate = ({data: {mdx: post}}) => {
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.author}</p>
         <MDXRenderer>{post.body}</MDXRenderer>
-        <Link to="/">&larr; Back to all posts</Link>
       </StyledPost>
+      <PostFooter>
+        <StyledLink to="/">&larr; Back to all posts</StyledLink>
+      </PostFooter>
     </Layout>
   )
 }

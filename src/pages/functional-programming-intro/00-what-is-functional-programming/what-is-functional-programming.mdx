@@ -10,24 +10,40 @@ focuses on programming through functions (with a few caveats that we'll discuss
 in a minute!).
 
 You might come from a different language, so the words programming paradigm
-might not be new to you, after all there are many, Object Oriented, Event
-Oriented, etc.
+might not be new to you, after all there are many, Imperative, Procedural,
+Object Oriented, Event Driven, etc, etc, etc.
 
 Each of these paradigms require a different mindset, writing code
 **imperatively** for example, means writing code as a series of instructions or
-commands. Some say that in the imperative category also falls object oriented
-programming, which uses objects to send messages (through methods) and
-encapsulate information (inner object state).
+commands. Object oriented programming uses objects to send messages (through
+methods) and encapsulate information (inner object state).
 
-But functional progr...
+As we mentioned before, Functional Programming means to compose software using
+functions, but also means:
 
-And you might be thinking, all of those use functions! And that's true, but each
-of these differ from each other
+- Using **pure functions**
+- Avoiding **shared state**
+- Avoiding **mutable data**
+- Avoiding **side effects**
+
+Sounds like a lot, so let's break it down one by one.
+
+To use pure functions means that our functions must...
 
 ```js
-function helloWorld() {
-  return 'Hello World!'
+// Pure function
+function increment(n) {
+  return n + 1
 }
 ```
 
-CodeEditor goes here
+And
+
+```js
+// NOT a Pure function
+let message = 'Hi'
+function increment(n) {
+  message = 'Bye'
+  return n + 1
+}
+```
