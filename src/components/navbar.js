@@ -1,21 +1,18 @@
-import {Link} from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import {StyledLink} from './styled-link'
 
 const StyledNavbar = styled.nav`
   display: flex;
   height: 50px;
-  background-color: #23297a;
+  background-color: #845ef7;
   color: white;
   align-items: baseline;
   padding-top: 7px;
-  a {
+  a h1 {
     color: white;
-    text-decoration: none;
-    h1 {
-      padding: 0 20px;
-      margin-right: 10px;
-    }
+    padding: 0 20px;
+    margin-right: 10px;
   }
 `
 
@@ -37,15 +34,15 @@ const Menu = styled.ul`
 const Navbar = () => {
   return (
     <StyledNavbar>
-      <Link to="/">
+      <StyledLink to="/">
         <h1>JS</h1>
-      </Link>
+      </StyledLink>
       <Menu>
         <li>
-          <Link to="/path">Course Exercises</Link>
+          <StyledLink to="/path">Course Exercises</StyledLink>
         </li>
         <li>
-          <Link to="/">Blog Posts</Link>
+          <StyledLink to="/posts">Blog Posts</StyledLink>
         </li>
       </Menu>
     </StyledNavbar>

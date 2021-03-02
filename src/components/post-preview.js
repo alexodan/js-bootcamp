@@ -1,15 +1,29 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import styled from 'styled-components'
+import {StyledLink} from './styled-link'
+
+const StyledPreview = styled.article`
+  max-width: 1440px;
+  width: 80%;
+  margin: 20px auto;
+  h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+`
 
 const PostPreview = ({post}) => {
   return (
-    <article>
+    <StyledPreview>
       <h3>
-        <Link to={`/${post.slug}`}>{post.title}</Link>
+        <StyledLink to={`/${post.slug}`}>{post.title}</StyledLink>
       </h3>
       <p>{post.excerpt}</p>
-      <Link to={`/${post.slug}`}>Read the post</Link>
-    </article>
+      <StyledLink to={`/${post.slug}`}>Read the post</StyledLink>
+    </StyledPreview>
   )
 }
 
