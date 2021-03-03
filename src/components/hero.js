@@ -9,8 +9,6 @@ const ImageBackground = styled.div`
   background-size: cover;
 `
 
-const Hero = ({imagePath}) => {
-  return <ImageBackground imagePath={imagePath} />
-}
+const Hero = ({imagePath}) => <ImageBackground imagePath={imagePath} />
 
 export default Hero
