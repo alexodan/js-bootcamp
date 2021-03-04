@@ -27,21 +27,22 @@ functions, but also means:
 - Avoiding **mutable data**
 - Avoiding **side effects**
 
-Sounds like a lot, so let's break it down one by one.
+Doing all this is gonna help us write code more resiliant, easier to read, less
+error prone and much more predictable. Sounds like a lot, so let's break it down
+one by one.
 
-To use pure functions means that our functions must...
+For a function to be pure, it means that given a certain input, it will always
+return the same output. So for example:
 
 ```js
-// Pure function
-function increment(n) {
-  return n + 1
-}
+// This is a pure function
+const increment = n => n + 1
 ```
 
 And
 
 ```js
-// NOT a Pure function
+// This is NOT a pure function
 let message = 'Hi'
 function increment(n) {
   message = 'Bye'
