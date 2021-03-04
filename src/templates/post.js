@@ -2,7 +2,9 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+import CodeBlock from '../components/code-block'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
+import {MDXProvider} from '@mdx-js/react'
 import styled from 'styled-components'
 import {MediaQueries} from '../utils/media-queries'
 import {StyledLink} from '../components/styled-link'
@@ -48,6 +50,10 @@ export const query = graphql`
   }
 `
 
+const components = {
+  pre: CodeBlock,
+}
+
 const PostTemplate = ({data: {mdx: post}}) => {
   return (
     <Layout>
@@ -55,7 +61,9 @@ const PostTemplate = ({data: {mdx: post}}) => {
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.author}</p>
         <Hero imagePath={post.frontmatter.image} />
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <MDXProvider components={components}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MDXProvider>
       </StyledPost>
       <PostFooter>
         <StyledLink to="/">&larr; Back to all posts</StyledLink>
