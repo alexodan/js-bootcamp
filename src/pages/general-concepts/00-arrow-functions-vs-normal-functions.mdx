@@ -1,0 +1,116 @@
+---
+title: Funciones flecha en JavaScript (Arrow functions)
+slug: general-concepts/arrow-functions-vs-normal-functions
+author: Alexis Diaz
+image: /images/buenos-aires.jpeg
+---
+
+## Que son las funciones flecha?
+
+Antes de EcmaScript6, no teníamos una forma concisa de escribir funciones, sino
+que necesariamente teníamos que usar la siguiente sintaxis:
+
+```js
+function felicitar() {
+  return 'Felicitaciones!'
+}
+```
+
+## (No tan) Nueva sintaxis
+
+A partir de 2015 se añade la sintaxis de flecha para escribir funciones.
+
+Las funciones flecha (muchas veces nos encontramos con el término en inglés, más
+popular, de arrow function) comienzan con una lista de parametros que espera la
+función:
+
+`(a, b, c)` seguida de una flecha `=>`, seguida a su vez por una expresión que
+devuelve un valor:
+
+`(a, b, c) => a + b + c`
+
+También nos podemos encontrar con las llaves `{}` para el cuerpo de la función,
+entonces:
+
+```js
+const miFuncion = (a, b, c) => {
+  console.log('Sumando a, b y c...')
+  return a + b + c
+}
+```
+
+`NOTA: si la función solo toma un parámetro, eres libre de usar paréntesis o no, como prefieras! Si en cambio no toma ningún parametro de entrada (o toma más de uno) tienes que usarlos obligadamente.`
+
+## Más ejemplos de arrow functions
+
+```js
+const felicitar = () => 'Felicitaciones!'
+```
+
+```js
+const incrementar = num => num + 1
+// Al recibir un solo parametro, podemos omitir los paréntesis!
+```
+
+## Importante! 👀
+
+Cuando se hace uso de las llaves `{}` debemos explícitamente usar la keyword
+`return` si queremos devolver algo al finalizar la función.
+
+_Pero si nuestra función es de una sola línea y usamos la notación de flecha,
+debemos prescindir del `return`, de lo contrario nos dará un error._
+
+En el ejemplo anterior, aún no habiendo usado `return`, la función `felicitar`
+va a devolver el string 'Felicitaciones!', en cambio la siguiente función
+devolvería `undefined`:
+
+```js
+const felicitar = () => {
+  'Felicitaciones!'
+}
+```
+
+## Para qué sirven las funciones flecha?
+
+Como adelantamos en los ejemplos, son muy útiles para declarar funciones de
+línea (`inline functions`), tomemos un caso:
+
+```js
+;['this', 'is', 'sparta!'].map(function(str) {
+  return str.toUpperCase()
+})
+// este bloque devolverá ['THIS','IS','SPARTA!']
+```
+
+Con arrow functions podemos tomar ventaja de una sintaxis menos _ruidosa_,
+haciendo nuestro código más conciso y claro:
+
+```js
+;['this', 'is', 'sparta!'].map(str => str.toUpperCase())
+// este bloque también devolverá ['THIS','IS','SPARTA!']
+```
+
+También son útiles para declarar funciones `curried` de manera más concisa,
+éstas funciones toman múltiples argumentos, uno a la vez, y retornan una función
+que espera el próximo argumento, y así sucesivamente:
+
+```js
+function sumar(a) {
+  return function(b) {
+    return a + b
+  }
+}
+```
+
+Con arrow function:
+
+```js
+const sumar = a => b => a + b
+```
+
+Hay varias cosas adicionales adicionales para mencionar sobre las funciones de
+flecha, pero lo dejaremos para la [segunda parte](https://medium.com) de este
+artículo!
+
+No dejes que las arrow function te intimiden, al principio tal vez te cueste más
+leerlas y entenderlas, pero cuánto más las uses más fáciles te resultarán!
