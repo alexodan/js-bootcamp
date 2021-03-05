@@ -32,14 +32,31 @@ error prone and much more predictable. Sounds like a lot, so let's break it down
 one by one.
 
 For a function to be pure, it means that given a certain input, it will always
-return the same output. So for example:
+return the same output.
+
+**This is a pure function**
 
 ```js
-// This is a pure function
 const increment = n => n + 1
 ```
 
-And
+**And this one is not**
+
+```js
+const increment = (obj, prop) => {
+  obj[prop] += 1
+  return obj
+}
+const account = {
+  balance: 100,
+}
+increment(account, 'balance') // will return { balance: 101 }
+increment(account, 'balance') // this time will return { balance: 102 }
+```
+
+Last, we mentioned that pure functions avoid having side effects, this means...
+
+So for example:
 
 ```js
 // This is NOT a pure function
