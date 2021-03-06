@@ -61,6 +61,7 @@ const PostTemplate = ({data: {mdx: post}}) => {
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.author}</p>
         <Hero imagePath={post.frontmatter.image} />
+        <br />
         <MDXProvider components={components}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>

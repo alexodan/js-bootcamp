@@ -42,7 +42,7 @@ const Navbar = () => {
           <StyledLink to="/path">Course Exercises</StyledLink>
         </li>
         <li>
-          <StyledLink to="/posts">Blog Posts</StyledLink>
+          <StyledLink to="/blog">Blog Posts</StyledLink>
         </li>
       </Menu>
     </StyledNavbar>
