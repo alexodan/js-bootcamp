@@ -1,0 +1,75 @@
+---
+title: What is functional programming?
+slug: functional-programming-intro/what-is-functional-programming
+author: Alexis Diaz
+image: /images/buenos-aires.jpeg
+---
+
+Primero que todo, es un paradigma. Que significa esto? Basicamente es un modelo
+mental, una formar de pensar a la programación y que influirá en como escribimos
+nuestro código. En un sentido un poco menos abstracto, la programación funcional
+se concentra en programar a través de funciones (duh), pero con algunas
+aclaraciones importantes que hablaremos enseguida.
+
+Tal vez vengas de otro lenguaje de programacion, por lo que la palabra
+'paradigma' te sea conocida, ya que cada lenguaje se inclina a uno o varios
+paradigmas. Algunos muy conocidos son el imperativo, declarativo, procedural,
+orientado a objetos, orientado a eventos, funcional, etcetera.
+
+Cada uno de estos paradigmas plantea un modelo mental diferente, el imperativo
+por ejemplo, se basa en escribir código como una serie de instrucciones o
+comandos. El orientado a objetos, muy usado en muchos lenguajes, se basa en
+organizar un programa en objetos, que pueden comunicarse con otros enviando
+mensajes entre sí.
+
+## Paradigma funcional
+
+Por ahora nos concentramos en el paradigma funcional, y que propone?
+
+- Usar **funciones puras** (Use pure functions).
+- Evitar **estado compartido** (Avoid shared state).
+- Evitar la **mutación de datos** (Avoiding mutable data).
+- Evitar **efectos colaterales** (Avoiding side effects).
+
+Seguir estas normas nos va a ayudar a escribir codigo mas resiliente, fácil de
+leer, menos propenso a errores y mas facil de predecir.
+
+Vamos a ver de que se trata cada una de estas caracteristicas en detalle.
+
+### Funciones puras
+
+For a function to be pure, it means that given a certain input, it will always
+return the same output.
+
+**This is a pure function**
+
+```js
+const increment = n => n + 1
+```
+
+**And this one is not**
+
+```js
+const increment = (obj, prop) => {
+  obj[prop] += 1
+  return obj
+}
+const account = {
+  balance: 100,
+}
+increment(account, 'balance') // will return { balance: 101 }
+increment(account, 'balance') // this time will return { balance: 102 }
+```
+
+Last, we mentioned that pure functions avoid having side effects, this means...
+
+So for example:
+
+```js
+// This is NOT a pure function
+let message = 'Hi'
+function increment(n) {
+  message = 'Bye'
+  return n + 1
+}
+```
