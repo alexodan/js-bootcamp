@@ -38,16 +38,16 @@ Vamos a ver de que se trata cada una de estas caracteristicas en detalle.
 
 ### Funciones puras
 
-For a function to be pure, it means that given a certain input, it will always
-return the same output.
+Que una funcion sea pura significa que para un mismo input, siempre retornara el
+mismo output.
 
-**This is a pure function**
+**Esta funcion es pura**
 
 ```js
 const increment = n => n + 1
 ```
 
-**And this one is not**
+**En cambio la siguiente no**
 
 ```js
 const increment = (obj, prop) => {
@@ -57,16 +57,20 @@ const increment = (obj, prop) => {
 const account = {
   balance: 100,
 }
-increment(account, 'balance') // will return { balance: 101 }
-increment(account, 'balance') // this time will return { balance: 102 }
+increment(account, 'balance') // retornará { balance: 101 }
+increment(account, 'balance') // esta vez retornará { balance: 102 }
 ```
 
-Last, we mentioned that pure functions avoid having side effects, this means...
+...
 
-So for example:
+Por ultimo mencionamos que las funciones puras deben evitar efectos colaterales,
+esto significa que ...
+
+Entonces por ejemplo:
+
+**No es una funcion pura**
 
 ```js
-// This is NOT a pure function
 let message = 'Hi'
 function increment(n) {
   message = 'Bye'
