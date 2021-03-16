@@ -61,7 +61,16 @@ increment(account, 'balance') // retornará { balance: 101 }
 increment(account, 'balance') // esta vez retornará { balance: 102 }
 ```
 
-...
+Esto ayuda muchísimo a que nuestras funciones sean más predecibles y fáciles de
+testear.
+
+### Evitar **estado compartido**
+
+Un problema de compartir el estado en nuestra aplicacion es que para entender
+los efectos que tiene una funcion tenemos que conocer todo el recorrido de una
+variable que pudo ser afectada por otras funciones.
+
+### Efectos colaterales
 
 Por ultimo mencionamos que las funciones puras deben evitar efectos colaterales,
 esto significa que ...
