@@ -70,10 +70,19 @@ Un problema de compartir el estado en nuestra aplicacion es que para entender
 los efectos que tiene una funcion tenemos que conocer todo el recorrido de una
 variable que pudo ser afectada por otras funciones.
 
+### Mutación de datos
+
 ### Efectos colaterales
 
-Por ultimo mencionamos que las funciones puras deben evitar efectos colaterales,
-esto significa que ...
+Un efecto colateral es cualquier cambio en el estado de la aplicacion que pueda
+ser visible por fuera de la invocacion a una funcion excluyendo el valor que
+retorna. Por ejemplo:
+
+- Modificar una variable externa o una propiedad de un objeto fuera del scope de
+  la funcion.
+- Loggear en la consola, escribir en la pantalla, escribir en un archivo.
+- Disparar un proceso externo.
+- Llamar otras funciones con efectos colaterales.
 
 Entonces por ejemplo:
 
